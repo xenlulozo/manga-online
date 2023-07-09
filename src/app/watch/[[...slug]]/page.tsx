@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
-import getImageNames from "../../../getImages"
+import getImageNames from "../../getImages"
 import Content from './content';
 import NextPrev from './fromClient';
 import getPublicDirectories from '@/app/countDirectories';
@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
   const imageNames: string[] = getImageNames(params.slug);
 
   return <>
-    {/* {console.log(publicDirectories.length)} */}
+    {/* {console.log(typeof params)} */}
     <div className="container">
 
       <div className='justify-content-center'>
@@ -21,7 +21,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
         <Content slug={params.slug} />
 
       </div>
-      {/* <NextPrev slug={params.slug} index={publicDirectories.length} /> */}
+
       <NextPrev slug={params.slug} indexSV={publicDirectories.length} />
 
 

@@ -11,9 +11,9 @@ interface props {
 }
 export default function ListManga({ item, quantity }: props) {
     const { push } = useRouter();
-    const toContent = () => {
+    const toContent = (item: string) => {
 
-        push('/watch');
+        push(`/watch/${item}`);
     }
     return <>
         {item &&
@@ -23,7 +23,7 @@ export default function ListManga({ item, quantity }: props) {
                     <>
                         <div className='col-12 mx-5 mt-5'>
 
-                            <div className='col-3' onClick={toContent}>
+                            <div className='col-3' onClick={() => toContent(item)}>
                                 <div className='imgContent'>
                                     <span>[{quantity}/?]</span>
                                     <img src={`${item}/avatar.jpg`}></img>

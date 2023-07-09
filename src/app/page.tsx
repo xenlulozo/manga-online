@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react"
 
 export default function Home() {
   const publicDirectories = getPublicDirectorie();
-  const publicDirectorie = getPublicDirectories("oh shi no ko").length;
+  const publicDirectorie = getPublicDirectories().length;
 
   return (
     <>

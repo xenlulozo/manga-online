@@ -14,7 +14,8 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
     const [index, setIndex] = useState(0)
     // const router = useRouter();
     useEffect(() => {
-        setIndex(Number(replaceString(slug)))
+        if (slug.length > 1)
+            setIndex(Number(replaceString(slug[1])))
     }, [])
     const replaceString = (inputString: string): string => {
 
@@ -31,13 +32,13 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
             setIndex(() => index - 1)
     }
     return (<>
-        {console.log(index)}
+
         <div>
             <div className="d-flex justify-content-center mt-4">
 
                 {index !== 1 ?
                     <button className="btn btn-primary mr-2" onClick={handelPrev}>
-                        <Link href={`http://localhost:3000/watch/chap_${encodeURIComponent(index - 1)}`}>
+                        <Link href={`/watch/${slug[0]}/chap_${encodeURIComponent(index - 1)}`}>
                             Prev Chapter
                         </Link>
                     </button>
@@ -53,7 +54,7 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
 
                 <button className="btn btn-primary" onClick={handelNext}>
                     {index < indexSV ?
-                        <Link href={`http://localhost:3000/watch/chap_${encodeURIComponent(index + 1)}`}>
+                        <Link href={`/watch/${slug[0]}/chap_${encodeURIComponent(index + 1)}`}>
                             Next Chapter
                         </Link> :
                         <> Next Chapter</>

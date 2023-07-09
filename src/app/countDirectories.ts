@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const getPublicDirectories = (name: string): string[] => {
+const getPublicDirectories = (): string[] => {
   const publicDirPath = path.join(process.cwd(), 'public/oh_shi_no_ko');
   const files = fs.readdirSync(publicDirPath);
 
