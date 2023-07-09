@@ -9,7 +9,7 @@ interface ComponentAProps {
   index: number
 }
 export default function Page({ params }: { params: { slug: string, index: Number } }) {
-  const publicDirectories = getPublicDirectories();
+  const publicDirectories = getPublicDirectories(params.slug[0]);
   const imageNames: string[] = getImageNames(params.slug);
 
   return <>

@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const getPublicDirectories = (): string[] => {
-  const publicDirPath = path.join(process.cwd(), 'public/oh_shi_no_ko');
+const getPublicDirectories = (name: string): string[] => {
+  console.log(name)
+  const publicDirPath = path.join(process.cwd(), `public/${name}`);
   const files = fs.readdirSync(publicDirPath);
 
   const directories = files.filter((file) => {
