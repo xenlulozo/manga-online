@@ -16,12 +16,17 @@ export default function Content({ slug, name, chap }: PageProps) {
         {/* {console.log(slug)} */}
         {slug && slug.length > 1 ?
             <>
-                {slug.map((imageName) => (
+                {slug.map((imageName) => {
+                    // console.log(imageName)
+                    return <>
+                        <div>from content</div>
+                        {/* <div className='d-flex justify-content-center' key={imageName}>
+                            <img src={`/${name}/${chap}/${imageName}`} alt={imageName} style={{ width: "700px" }} />
+                        </div> */}
+                    </>
+                }
 
-                    <div className='d-flex justify-content-center' key={imageName}>
-                        <img src={`/${name}/${chap}/${imageName}`} alt={imageName} style={{ width: "700px" }} />
-                    </div>
-                ))}
+                )}
             </>
             :
             <></>
