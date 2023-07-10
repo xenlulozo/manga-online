@@ -9,7 +9,8 @@ interface ComponentAProps {
   index: number
 }
 export default function Page({ params }: { params: { slug: string, index: Number } }) {
-  const publicDirectories = getPublicDirectories(params.slug[0]);
+  const publicDirectories = getPublicDirectories(params.slug[0
+  ]);
   const imageNames: string[] = getImageNames(params.slug);
 
   return <>
@@ -18,7 +19,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
 
       <div className='justify-content-center'>
 
-        <Content slug={params.slug} />
+        <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
 
       </div>
 
