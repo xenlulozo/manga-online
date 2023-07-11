@@ -12,11 +12,23 @@ import React, { useEffect, useState } from "react"
 export default function Home() {
   const publicDirectories = getPublicDirectorie();
   const publicDirectorie = getPublicDirectories("oh_shi_no_ko").length;
+  interface DataItem {
+    [key: string]: any;
+  }
 
+  const data: DataItem[] = [];
+  publicDirectories.forEach((item) => {
+    const dynamicKey: string = item;
+    const obj: DataItem = {};
+    obj["name"] = dynamicKey
+    obj["quantity"] = getPublicDirectories(item).length;
+    // obj[dynamicKey] = getPublicDirectories(item).length;
+    data.push(obj);
+  });
   return (
     <>
       <div className='container'>
-        <ListManga item={publicDirectories} quantity={publicDirectorie} />
+        <ListManga data={data} />
       </div>
 
     </>

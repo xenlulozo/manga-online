@@ -10,12 +10,12 @@ export default function Home({ params }: { params: { slug: string } }) {
     const publicDirectories = getPublicDirectories(params.slug);
     return (
         <>
-            <h1>{params.slug}</h1>
+            <h1>{params.slug.replaceAll("_", " ")}</h1>
             {publicDirectories &&
                 publicDirectories.map((item, index) => {
                     return (
                         <>
-                            <div key={item}>
+                            <div key={index}>
                                 <Link href={`/watch/${params.slug}/${encodeURIComponent(item.trim())}`}>
                                     {item.replaceAll("_", " ")}
                                 </Link>

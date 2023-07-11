@@ -54,7 +54,7 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
                         {/* </Link> */}
                     </button>
                     : <>
-                        <button className="btn btn-primary mr-2" >
+                        <button className="btn btn-primary mr-2"    >
 
                             <span>Prev Chapter</span>
                         </button>

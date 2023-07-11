@@ -6,30 +6,33 @@ import React from "react"
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 
 interface props {
-    item: string[]
-    quantity: number
+
+    data: any
 }
-export default function ListManga({ item, quantity }: props) {
+
+export default function ListManga({ data }: props) {
     const { push } = useRouter();
     const toContent = (item: string) => {
 
         push(`/watch/${item}`);
     }
     return <>
-        {item &&
-            item.map((item, index) => {
+        {console.log(data)}
 
+        {data &&
+            data.map((item: any, index: any) => {
+                console.log(item)
                 return (
                     <>
                         <div className='col-12 mx-5 mt-5'>
 
-                            <div className='col-3' onClick={() => toContent(item)}>
+                            <div className='col-3' onClick={() => toContent(item.name)}>
                                 <div className='imgContent'>
-                                    <span>[{quantity}/?]</span>
-                                    <img src={`${item}/avatar.jpg`}></img>
+                                    <span>[{item.quantity}/?]</span>
+                                    <img src={`${item.name}/avatar.jpg`}></img>
                                 </div>
 
-                                <h1>{item.replaceAll("_", " ")}</h1>
+                                <h1>{item.name.replaceAll("_", " ")}</h1>
                             </div>
                         </div>
 
