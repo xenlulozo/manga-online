@@ -13,13 +13,14 @@ export default function Content({ slug, name, chap }: PageProps) {
 
     return <>
 
+        <div>{slug} - {name} - {chap}</div>
+
         {/* {console.log(slug)} */}
-        {slug && slug.length > 1 ?
+        {/* {slug && slug.length > 1 ?
             <>
                 {slug.map((imageName) => {
                     // console.log(imageName)
                     return <>
-                        {/* <div>from content</div> */}
                         <div className='d-flex justify-content-center' key={imageName}>
                             <img src={`/${name}/${chap}/${imageName}`} alt={imageName} style={{ width: "700px" }} />
                         </div>
@@ -30,7 +31,7 @@ export default function Content({ slug, name, chap }: PageProps) {
             </>
             :
             <></>
-        }
+        } */}
 
 
     </>

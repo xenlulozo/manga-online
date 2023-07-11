@@ -11,7 +11,6 @@ import React, { useEffect, useState } from "react"
 
 export default function Home() {
   const publicDirectories = getPublicDirectorie();
-  const publicDirectorie = getPublicDirectories("oh_shi_no_ko").length;
   interface DataItem {
     [key: string]: any;
   }

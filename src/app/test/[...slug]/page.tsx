@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
 
       </div>
 
-      <NextPrev slug={params.slug} indexSV={publicDirectories.length} />
+      {/* <NextPrev slug={params.slug} indexSV={publicDirectories.length} /> */}
 
 
 
