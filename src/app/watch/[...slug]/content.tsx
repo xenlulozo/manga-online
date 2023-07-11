@@ -19,10 +19,10 @@ export default function Content({ slug, name, chap }: PageProps) {
                 {slug.map((imageName) => {
                     // console.log(imageName)
                     return <>
-                        <div>from content</div>
-                        {/* <div className='d-flex justify-content-center' key={imageName}>
+                        {/* <div>from content</div> */}
+                        <div className='d-flex justify-content-center' key={imageName}>
                             <img src={`/${name}/${chap}/${imageName}`} alt={imageName} style={{ width: "700px" }} />
-                        </div> */}
+                        </div>
                     </>
                 }
 

@@ -14,7 +14,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
   const imageNames: string[] = getImageNames(params.slug);
 
   return <>
-    {/* {console.log(params.slug)} */}
+    {/* {console.log("go")} */}
     <div className="container">
 
       <div className='justify-content-center'>

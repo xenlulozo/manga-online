@@ -10,7 +10,7 @@ export default function Home({ params }: { params: { slug: string } }) {
     const publicDirectories = getPublicDirectories(params.slug);
     return (
         <>
-
+            <h1>{params.slug}</h1>
             {publicDirectories &&
                 publicDirectories.map((item, index) => {
                     return (
