@@ -18,8 +18,10 @@ export default function Page({ params }: { params: { slug: string, index: Number
     <div className="container">
 
       <div className='justify-content-center'>
+        from server
+        {params.slug}
 
-        <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
+        {/* <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} /> */}
 
       </div>
 
