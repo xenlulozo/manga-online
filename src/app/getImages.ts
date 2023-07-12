@@ -5,7 +5,7 @@ import path from 'path';
 //   slug : string
 //   name : string
 // }
-const getImageNames = (data :string): string[] => {
+const getImage = (data :string): string[] => {
   const name = data[0]
   const chap = data[1]
 
@@ -19,4 +19,4 @@ const getImageNames = (data :string): string[] => {
   return []
 };
 
-export default getImageNames;
+export default getImage;

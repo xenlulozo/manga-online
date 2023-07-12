@@ -11,12 +11,14 @@ interface PageProps {
 }
 export default function Content({ slug, name, chap }: PageProps) {
     return <>
+        {console.log(slug)}
         {slug && slug.length > 1 ?
             <>
                 {slug.map((imageName) => {
+
                     return <>
                         <div className='d-flex justify-content-center' key={imageName}>
-                            <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={700} height={1000} />
+                            <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={700} height={10000} />
                         </div>
                     </>
                 }
