@@ -8,7 +8,7 @@ interface PageProps {
     name: string
     chap: string
 }
-export default function Content({ slug, name, chap }: PageProps) {
+export default async function Content({ slug, name, chap }: PageProps) {
     // const imageNames: string[] = getImageNames(slug);
 
     return <>
