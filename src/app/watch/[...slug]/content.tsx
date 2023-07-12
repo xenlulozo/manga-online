@@ -10,17 +10,11 @@ interface PageProps {
     chap: string
 }
 export default function Content({ slug, name, chap }: PageProps) {
-    // const imageNames: string[] = getImageNames(slug);
-
     return <>
-
-        {/* {console.log(slug)} */}
         {slug && slug.length > 1 ?
             <>
                 {slug.map((imageName) => {
-                    // console.log(imageName)
                     return <>
-                        {/* <div>from content</div> */}
                         <div className='d-flex justify-content-center' key={imageName}>
                             <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={700} height={1000} />
                         </div>
@@ -32,7 +26,5 @@ export default function Content({ slug, name, chap }: PageProps) {
             :
             <></>
         }
-
-
     </>
 }

@@ -18,6 +18,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
       <div className='justify-content-center'>
         from server
         {params.slug}
+        <img src='/oh_shi_no_ko/chap_1/001.jpg'></img>
 
         {/* <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} /> */}
 
