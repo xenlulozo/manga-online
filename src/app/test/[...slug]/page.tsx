@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import getImageNames from "../../getImages"
-import Content from './content';
-import NextPrev from './fromClient';
 import getPublicDirectories from '@/app/countDirectories';
 
 interface ComponentAProps {
