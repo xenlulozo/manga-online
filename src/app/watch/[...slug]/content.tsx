@@ -1,6 +1,7 @@
 "use client"
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
+import Image from 'next/image'
 // import getImageNames from "../../getImages"
 
 interface PageProps {
@@ -8,7 +9,7 @@ interface PageProps {
     name: string
     chap: string
 }
-export default async function Content({ slug, name, chap }: PageProps) {
+export default function Content({ slug, name, chap }: PageProps) {
     // const imageNames: string[] = getImageNames(slug);
 
     return <>
@@ -21,7 +22,7 @@ export default async function Content({ slug, name, chap }: PageProps) {
                     return <>
                         {/* <div>from content</div> */}
                         <div className='d-flex justify-content-center' key={imageName}>
-                            <img src={`/${name}/${chap}/${imageName}`} alt={imageName} style={{ width: "700px" }} />
+                            <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={700} height={1000} />
                         </div>
                     </>
                 }
