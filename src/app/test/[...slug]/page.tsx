@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
   const imageNames: string[] = getImageNames(params.slug);
 
   return <>
-
+    {imageNames}
     <div className="container">
 
       <div className='justify-content-center'>
@@ -23,6 +23,7 @@ export default function Page({ params }: { params: { slug: string, index: Number
         {imageNames.map((imageName) => {
           return <>
             <div className='d-flex justify-content-center' key={imageName}>
+
               <Image src={`/${params.slug[0]}/${params.slug[1]}/${imageName}`} alt={imageName} width={700} height={1000} />
             </div>
           </>
