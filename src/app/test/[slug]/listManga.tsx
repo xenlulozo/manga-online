@@ -17,11 +17,13 @@ export default function ListManga({ data }: props) {
         push(`/watch/${item}`);
     }
     return <>
-        {console.log(data)}
+        {/* {console.log(data)}
+        
+        */}
 
         {data &&
             data.map((item: any, index: any) => {
-                console.log(item)
+                // console.log(item)
                 return (
                     <>
                         <div className='col-12 mx-5 mt-5'>

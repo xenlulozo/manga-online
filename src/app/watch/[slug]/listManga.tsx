@@ -17,8 +17,11 @@ export default function ListManga({ data }: props) {
         push(`/watch/${item}`);
     }
     return <>
-        {console.log(data)}
+        {/* {console.log(data)} */}
+        <div>
+            <img src='oh_shi_no_ko/chap_1/001.jpg' alt='rax'></img>
 
+        </div>
         {data &&
             data.map((item: any, index: any) => {
                 console.log(item)

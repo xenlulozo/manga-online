@@ -24,6 +24,7 @@ export default function Home({ params }: { params: { slug: string } }) {
 
                     );
                 })}
+            {/* <img src='oh_shi_no_ko/chap_1/001.jpg'></img> */}
         </>
     )
 }
