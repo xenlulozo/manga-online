@@ -34,6 +34,7 @@ export default function Base({ params }: { params: { slug: string } }) {
     fetchImageNames();
   }, []);
   return <>
+    <h1>{params.slug[0].replaceAll("_", " ")} </h1>
     <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
     <NextPrev name={params.slug[0]} chap={params.slug[1]} />
   </>
