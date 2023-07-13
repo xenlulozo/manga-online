@@ -27,7 +27,7 @@ export default function NextPrev({ name, chap }: NextPrevProps) {
         const fetchImageNames = async () => {
 
             try {
-                const response = await fetch(`http://localhost:3000/api/getCountToRedirect?name=${name}`);
+                const response = await fetch(`https://manga-online-six.vercel.app/api/getCountToRedirect?name=${name}`);
                 const data = await response.json();
 
                 setData(data);
