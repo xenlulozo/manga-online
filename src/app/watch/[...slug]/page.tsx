@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react';
 import getImageNames from "../../getImages"
 import Image from 'next/image';
 import getPublicDirectories from '@/app/countDirectories';
-import Content from '@/app/watch/[...slug]/content';
+import Content from '@/component/content';
 import { data } from 'autoprefixer';
-import NextPrev from '@/app/watch/[...slug]/fromClient';
+import NextPrev from '@/component/fromClient';
 
 interface ComponentAProps {
   index: number
@@ -34,6 +34,7 @@ export default function Base({ params }: { params: { slug: string } }) {
     fetchImageNames();
   }, []);
   return <>
+    <h1>{params.slug[0].replaceAll("_", "")} </h1>
     <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
     <NextPrev name={params.slug[0]} chap={params.slug[1]} />
   </>
