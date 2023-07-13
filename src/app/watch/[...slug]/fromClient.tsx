@@ -4,24 +4,46 @@ import React, { useEffect, useState } from "react";
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { data } from 'autoprefixer';
 
 
 interface NextPrevProps {
-    slug: string;
-    indexSV: number;
+    name: any;
+    chap: any
+    // indexSV: number;
 }
 
 
 
-export default function NextPrev({ slug, indexSV }: NextPrevProps) {
+export default function NextPrev({ name, chap }: NextPrevProps) {
     const [index, setIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [data, setData] = useState([])
     const { push } = useRouter();
 
     // const router = useRouter();
     useEffect(() => {
-        if (slug.length > 1)
-            setIndex(Number(replaceString(slug[1])))
+
+        const fetchImageNames = async () => {
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/getCountToRedirect?name=${name}`);
+                const data = await response.json();
+
+                setData(data);
+                setIndex(Number(data.length))
+                setCurrentIndex(Number(replaceString(chap)))
+
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchImageNames()
     }, [])
+    // if (slug.length > 1)
+    //     setIndex(Number(replaceString(slug[1])))
+
     const replaceString = (inputString: string): string => {
 
         const modifiedString = inputString.replace("chap_", "");
@@ -29,17 +51,17 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
         return modifiedString;
     }
     const handelNext = () => {
-        if (index < indexSV)
-            setIndex(() => index + 1)
+        if (currentIndex < index)
+            setIndex(() => currentIndex + 1)
 
-        push(`chap_${index + 1}`);
+        push(`chap_${currentIndex + 1}`);
 
     }
     const handelPrev = () => {
-        if (index !== 1 && index > 0)
-            setIndex(() => index - 1)
+        if (currentIndex !== 1 && currentIndex > 0)
+            setIndex(() => currentIndex - 1)
 
-        push(`chap_${index - 1}`);
+        push(`chap_${currentIndex - 1}`);
 
     }
     return (<>
@@ -47,11 +69,9 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
         <div>
             <div className="d-flex justify-content-center mt-4">
 
-                {index !== 1 ?
+                {currentIndex !== 1 ?
                     <button className="btn btn-primary mr-2" onClick={handelPrev}>
-                        {/* <Link href={`/watch/${slug[0]}/chap_${encodeURIComponent(index - 1)}`}> */}
                         <span> Prev Chapter</span>
-                        {/* </Link> */}
                     </button>
                     : <>
                         <button className="btn btn-primary mr-2"    >
@@ -63,10 +83,8 @@ export default function NextPrev({ slug, indexSV }: NextPrevProps) {
                 }
 
 
-                {index < indexSV ?
-                    // <Link href={`/watch/${slug[0]}/chap_${encodeURIComponent(index + 1)}`}>
-                    //     Next Chapter
-                    // </Link>
+                {currentIndex < index ?
+
                     <button className="btn btn-primary" onClick={handelNext}>
 
                         <span>Next Chapter</span>
