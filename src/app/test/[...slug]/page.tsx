@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react';
 import getImageNames from "../../getImages"
 import Image from 'next/image';
 import getPublicDirectories from '@/app/countDirectories';
-import Content from '@/app/watch/[...slug]/content';
+import Content from '@/component/content';
 import { data } from 'autoprefixer';
-import NextPrev from '@/app/watch/[...slug]/fromClient';
+import NextPrev from '@/component/fromClient';
 
 interface ComponentAProps {
   index: number
