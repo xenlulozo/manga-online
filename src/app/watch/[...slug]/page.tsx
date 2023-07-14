@@ -22,7 +22,7 @@ export default function Base({ params }: { params: { slug: string } }) {
     const fetchImageNames = async () => {
 
       try {
-        const response = await fetch(`http://localhost:3000/api/getImage?name=${params.slug[0]}&chap=${params.slug[1]}`);
+        const response = await fetch(`https://manga-online-six.vercel.app/api/getImage?name=${params.slug[0]}&chap=${params.slug[1]}`);
 
         const data = await response.json();
         console.log(data)
