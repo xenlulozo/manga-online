@@ -1,0 +1,35 @@
+.body {
+    background-color: black;
+
+    h1 {
+        font-size: 1.5rem;
+    }
+    .header-container {
+        background-color: white;
+        padding: 1rem 1rem;
+        .reding-control {
+            background-color: #f6f7f8;
+            .notice {
+                background-color: #d9edf7;
+                color: #31708f;
+                height: 51px;
+                border-radius: 3px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .fixed-component {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0%;
+        z-index: 9999;
+        background-color: #e4e4e4;
+    }
+    .menu {
+        // background-color: #e4e4e4;
+    }
+}

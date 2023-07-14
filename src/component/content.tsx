@@ -18,7 +18,7 @@ export default function Content({ slug, name, chap }: PageProps) {
 
                     return <>
                         <div className='d-flex justify-content-center' key={imageName}>
-                            <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={700} height={10000} />
+                            <Image src={`/${name}/${chap}/${imageName}`} alt={imageName} width={1000} height={10000} />
                         </div>
                     </>
                 }

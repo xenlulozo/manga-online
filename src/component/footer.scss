@@ -1,0 +1,20 @@
+.container-footer {
+    border-top: 3px solid #ebebeb;
+    color: #333333;
+    padding: 60px 0 55px 0;
+    text-align: center;
+    height: 130px;
+    // background-color: red;
+    width: 100%;
+    .items {
+        height: 20px;
+        .item-footer {
+            text-decoration: none;
+            color: black;
+        }
+    }
+    .items:nth-child(2) {
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+}

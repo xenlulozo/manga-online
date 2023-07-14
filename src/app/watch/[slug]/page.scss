@@ -1,0 +1,25 @@
+.container {
+    .content-page {
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+        a {
+            text-decoration: none;
+        }
+        .ChapterfirstOrLast {
+            a {
+                color: white;
+                font-weight: 700;
+            }
+        }
+        .lits-chapter {
+            a {
+                color: black;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -2,9 +2,9 @@
 import { redirect } from 'next/navigation'
 import Link from "next/link"
 import React from "react"
-
+import "./main.scss"
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-
+import Image from 'next/image'
 interface props {
 
     data: any
@@ -18,26 +18,48 @@ export default function ListManga({ data }: props) {
     }
     return <>
 
-        {data &&
-            data.map((item: any, index: any) => {
-                console.log(item)
-                return (
-                    <>
-                        <div className='col-12 mx-5 mt-5'>
+        <div className='d-flex col-12 flex-wrap'>
+            {data &&
+                data.map((item: any, index: any) => {
 
-                            <div className='col-3' onClick={() => toContent(item.name)}>
-                                <div className='imgContent'>
-                                    <span>[{item.quantity}/?]</span>
-                                    <img src={`${item.name}/avatar.jpg`}></img>
+                    return (
+                        <>
+                            <div className='col-xl-4  col-12 my-3' key={index}>
+
+
+                                <div className=' d-flex'>
+                                    <div className='image-content' onClick={() => toContent(item.name)}>
+                                        <div className='quantity-chapter'>
+                                            <span>   {item.quantity} / ? </span>
+                                        </div>
+                                        <Image src={`/${item.name}/avatar.jpg`} height={120} width={100} alt='poster'></Image>
+                                    </div>
+                                    <div className='name-manga mx-2'>
+                                        <h1 className='name' onClick={() => toContent(item.name)}>{item.name.replaceAll("_", " ")}</h1>
+
+                                        <div>
+                                            {Array.from({ length: 2 }).map((_, i) => {
+                                                const chapterNumber = item.quantity - i;
+                                                if (chapterNumber > 0) {
+                                                    return <>
+                                                        <div className='new-chappter my-2 px-2'>
+                                                            <span key={i}>Chapter {chapterNumber}</span>
+                                                        </div>
+                                                    </>
+                                                }
+                                                return null;
+                                            })}
+
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <h1>{item.name.replaceAll("_", " ")}</h1>
                             </div>
-                        </div>
 
-                    </>
+                        </>
 
-                );
-            })}
+                    );
+                })}
+        </div>
+
     </>
 }

@@ -5,6 +5,10 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { data } from 'autoprefixer';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 interface NextPrevProps {
@@ -20,18 +24,19 @@ export default function NextPrev({ name, chap }: NextPrevProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [data, setData] = useState([])
     const { push } = useRouter();
+    const router = useRouter();
 
-    // const router = useRouter();
     useEffect(() => {
 
         const fetchImageNames = async () => {
 
             try {
-                const response = await fetch(`https://manga-online-six.vercel.app/api/getCountToRedirect?name=${name}`);
+                const response = await fetch(`http://localhost:3000/api/getCountToRedirect?name=${name}`);
                 const data = await response.json();
 
                 setData(data);
                 setIndex(Number(data.length))
+
                 setCurrentIndex(Number(replaceString(chap)))
 
             } catch (error) {
@@ -41,8 +46,6 @@ export default function NextPrev({ name, chap }: NextPrevProps) {
 
         fetchImageNames()
     }, [])
-    // if (slug.length > 1)
-    //     setIndex(Number(replaceString(slug[1])))
 
     const replaceString = (inputString: string): string => {
 
@@ -52,49 +55,71 @@ export default function NextPrev({ name, chap }: NextPrevProps) {
     }
     const handelNext = () => {
         if (currentIndex < index)
-            setIndex(() => currentIndex + 1)
+            setCurrentIndex(() => currentIndex + 1)
 
         push(`chap_${currentIndex + 1}`);
 
     }
     const handelPrev = () => {
         if (currentIndex !== 1 && currentIndex > 0)
-            setIndex(() => currentIndex - 1)
+            setCurrentIndex(() => currentIndex - 1)
 
         push(`chap_${currentIndex - 1}`);
 
     }
+    const handleChoose = (event: any) => {
+        const selectedChapter = event.target.value;
+        router.push(`/test/${name}/${selectedChapter}`);
+    };
     return (<>
 
         <div>
-            <div className="d-flex justify-content-center mt-4">
+            <div className="d-flex justify-content-center align-item-center">
 
-                {currentIndex !== 1 ?
+                {currentIndex !== 1 && currentIndex > 0 ?
                     <button className="btn btn-primary mr-2" onClick={handelPrev}>
-                        <span> Prev Chapter</span>
+                        <FontAwesomeIcon icon={faChevronLeft} />
                     </button>
                     : <>
-                        <button className="btn btn-primary mr-2"    >
-
-                            <span>Prev Chapter</span>
+                        <button className="btn btn-primary mr-2" disabled  >
+                            <FontAwesomeIcon icon={faChevronLeft} />
                         </button>
 
                     </>
                 }
 
+                {/* <span> Chappter {Number(replaceString(chap))}</span>
+                 */}
+                <div>
+                    <div className="input-group mx-3">
+                        <div className="input-group-prepend">
+                            <label className="input-group-text">Choose</label>
+                        </div>
+                        <select className="custom-select" id="inputGroupSelect01" onChange={(event) => handleChoose(event)}>
+                            <option selected hidden>Chapter {Number(replaceString(chap))}</option>
+                            {data && data.map((item, index) => {
+                                return (<>
+                                    <option key={index} value={item}>Chapter {Number(replaceString(item))}</option>
+                                </>)
+                            })}
+
+                        </select>
+                    </div>
+
+                </div>
 
                 {currentIndex < index ?
 
                     <button className="btn btn-primary" onClick={handelNext}>
 
-                        <span>Next Chapter</span>
+                        <FontAwesomeIcon icon={faChevronRight} />
 
                     </button>
 
                     :
-                    <button className="btn btn-primary" >
+                    <button className="btn btn-primary" disabled>
 
-                        <> Next Chapter</>
+                        <FontAwesomeIcon icon={faChevronRight} />
 
                     </button>
 

@@ -9,6 +9,8 @@ import Content from '@/component/content';
 import { data } from 'autoprefixer';
 import NextPrev from '@/component/fromClient';
 
+
+
 interface ComponentAProps {
   index: number
 }
@@ -34,8 +36,9 @@ export default function Base({ params }: { params: { slug: string } }) {
     fetchImageNames();
   }, []);
   return <>
-    <h1>{params.slug[0].replaceAll("_", "")} </h1>
-    <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
+    <div className='menu' style={{ position: "fixed", top: 0, zIndex: 9999 }}>
+      <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
+    </div>
     <NextPrev name={params.slug[0]} chap={params.slug[1]} />
   </>
 }

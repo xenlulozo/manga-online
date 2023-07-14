@@ -6,8 +6,9 @@ import getPublicDirectorie from './countManga';
 import getPublicDirectories from './countDirectories';
 import 'bootstrap/dist/css/bootstrap.css';
 import ListManga from './watch/[slug]/listManga';
-
+import RootLayout from "./layout"
 import React, { useEffect, useState } from "react"
+import Layout from '@/component/layout';
 
 export default function Home() {
   const publicDirectories = getPublicDirectorie();
@@ -21,15 +22,19 @@ export default function Home() {
     const obj: DataItem = {};
     obj["name"] = dynamicKey
     obj["quantity"] = getPublicDirectories(item).length;
-    // obj[dynamicKey] = getPublicDirectories(item).length;
     data.push(obj);
   });
   return (
     <>
-      <div className='container'>
-        <ListManga data={data} />
-      </div>
-
+      <Layout >
+        <div className='container'>
+          <div className=' border-bottom mt-5'>
+            <h1>READ MANGA - LATEST UPDATES</h1>
+          </div>
+          <ListManga data={data} />
+        </div>
+      </Layout>
     </>
   )
 }
+
