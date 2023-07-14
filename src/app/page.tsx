@@ -18,11 +18,14 @@ export default function Home() {
 
   const data: DataItem[] = [];
   publicDirectories.forEach((item) => {
-    const dynamicKey: string = item;
-    const obj: DataItem = {};
-    obj["name"] = dynamicKey
-    obj["quantity"] = getPublicDirectories(item).length;
-    data.push(obj);
+    if (item != "logo") {
+      const dynamicKey: string = item;
+      const obj: DataItem = {};
+      obj["name"] = dynamicKey
+      obj["quantity"] = getPublicDirectories(item).length;
+      data.push(obj);
+    }
+
   });
   return (
     <>
