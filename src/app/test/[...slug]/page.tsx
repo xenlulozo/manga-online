@@ -9,6 +9,7 @@ import Content from '@/component/content';
 import { data } from 'autoprefixer';
 import NextPrev from '@/component/fromClient';
 import "./menu.scss";
+import Layout from '@/component/layout';
 import Link from 'next/link';
 import { watch } from 'fs';
 interface ComponentAProps {
@@ -52,28 +53,31 @@ export default function Base({ params }: { params: { slug: string } }) {
     return modifiedString;
   }
   return <>
-    <div className='body'>
-      <div className='container'>
-        {params.slug.length === 2 ? <>
-          <div className='header-container'>
-            <h1><Link href={`/watch/${params.slug[0]}`}>{params.slug[0].replaceAll("_", " ")} </Link> - Chapter {Number(replaceString(params.slug[1]))}</h1>
-            <div className='reding-control py-3'>
-              <div className='notice'>
-                <em>Sử dụng mũi tên trái (←) hoặc phải (→) để chuyển chapter</em>
-              </div>
-              <div className={isFixed ? 'fixed-component' : 'menu pt-3'}>
-                <NextPrev name={params.slug[0]} chap={params.slug[1]} />
+    <Layout>
+
+
+      <div className='body'>
+        <div className='container'>
+          {params.slug.length === 2 ? <>
+            <div className='header-container'>
+              <h1><Link href={`/watch/${params.slug[0]}`}>{params.slug[0].replaceAll("_", " ")} </Link> - Chapter {Number(replaceString(params.slug[1]))}</h1>
+              <div className='reding-control py-3'>
+                <div className='notice'>
+                  <em>Use the left (←) or right (→) arrows to switch chapters</em>
+                </div>
+                <div className={isFixed ? 'fixed-component' : 'menu pt-3'}>
+                  <NextPrev name={params.slug[0]} chap={params.slug[1]} />
+                </div>
               </div>
             </div>
-          </div>
-          <div >
-            <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
-          </div>
-        </> : <></>}
+            <div >
+              <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
+            </div>
+          </> : <></>}
 
+        </div>
       </div>
-    </div>
-
+    </Layout>
   </>
 }
 
