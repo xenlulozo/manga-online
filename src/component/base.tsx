@@ -18,7 +18,7 @@
 //     const fetchImageNames = async () => {
 
 //       try {
-//         const response = await fetch(`https://manga-online-six.vercel.app/api/getImage?name=${slug.slug[0]}&chap=${slug.slug[1]}`);
+//         const response = await fetch(`http://localhost:3000/api/getImage?name=${slug.slug[0]}&chap=${slug.slug[1]}`);
 
 //         const data = await response.json();
 //         console.log(data)
