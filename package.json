@@ -13,7 +13,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
@@ -27,6 +26,7 @@
     "fs": "^0.0.1-security",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.1",
+    "mysql2": "^3.5.1",
     "next": "^13.4.9",
     "next-connect": "^1.0.0",
     "postcss": "8.4.25",
@@ -44,6 +44,7 @@
     "@types/body-parser": "^1.19.2",
     "@types/cookie": "^0.5.1",
     "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "^20.4.2",
     "babel-plugin-styled-components": "^2.1.1"
   }
 }
