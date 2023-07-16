@@ -9,6 +9,7 @@ import ListManga from './watch/[slug]/listManga';
 import RootLayout from "./layout"
 import React, { useEffect, useState } from "react"
 import Layout from '@/component/layout';
+import { connectDB } from '@/model/connectDB';
 
 export default function Home() {
   const publicDirectories = getPublicDirectorie();
@@ -29,7 +30,8 @@ export default function Home() {
   });
   return (
     <>
-      <Layout >
+
+      <Layout  >
         <div className='container'>
           <div className=' border-bottom mt-5'>
             <h1>READ MANGA - LATEST UPDATES</h1>
@@ -37,7 +39,11 @@ export default function Home() {
           <ListManga data={data} />
         </div>
       </Layout>
+
+
     </>
   )
 }
+
+
 

@@ -17,22 +17,33 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
     "babel-plugin-styled-components": "^2.1.1",
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.0",
+    "cookie": "^0.5.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "fs": "^0.0.1-security",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.1",
     "next": "^13.4.9",
+    "next-connect": "^1.0.0",
     "postcss": "8.4.25",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.1.6",
     "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-bootstrap": "^0.25.0",
-    "sass": "^1.63.6"
+    "redux": "^4.2.1",
+    "sass": "^1.63.6",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/cookie": "^0.5.1",
+    "@types/jsonwebtoken": "^9.0.2",
     "babel-plugin-styled-components": "^2.1.1"
   }
 }

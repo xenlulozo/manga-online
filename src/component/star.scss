@@ -1,0 +1,12 @@
+.star {
+    .quantity-star {
+        font-size: 30 !important;
+    }
+    .star-rate {
+        font-size: 30 !important;
+        .star-vote:hover {
+            transform: scale(1.5);
+            // height: 2rem;
+        }
+    }
+}

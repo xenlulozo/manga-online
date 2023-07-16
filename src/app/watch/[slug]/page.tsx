@@ -7,22 +7,28 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./page.scss"
 import Layout from '@/component/layout';
 import React, { useEffect, useState } from "react"
+import DetailStory from '@/component/detailStory';
+import Star from '@/component/star';
 
 export default function Home({ params }: { params: { slug: string } }) {
     const publicDirectories = getPublicDirectories(params.slug);
     return (
 
         <>
-            <Layout>
 
+            <Layout>
                 <div className='container'>
-                    <div className='content-page mx-xl-5'>
-                        <h1 className='text-center '>{params.slug.replaceAll("_", " ")}</h1>
+                    <div className='content-page mx-xl-5 my-3'>
+                        <h1 className='text-center '>{params.slug.replaceAll("_", " ").toUpperCase()}</h1>
                         <div className='section d-flex col-12'>
                             <div className='poster col-xl-3 col-5 '>
                                 <img src={`/${params.slug}/avatar.jpg`}></img>
                             </div>
                             <div className='chapter mx-3 col-xl-8 col-6'>
+                                <div>
+                                    <DetailStory name={params.slug} />
+                                    <Star name={params.slug} />
+                                </div>
                                 <div className='ChapterfirstOrLast'>
                                     <button className='btn btn-success mx-2 my-2'>
                                         <Link style={{ color: "white !important", textDecoration: "none" }} href={`/test/${params.slug}/${encodeURIComponent(
