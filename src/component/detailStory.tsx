@@ -25,7 +25,7 @@ export default function DetailStory({ name }: nameManga) {
             try {
                 const requestData = { name: name };
                 const queryParams = new URLSearchParams(requestData);
-                const url = `https://manga-online-six.vercel.app/api/getStory?${queryParams.toString()}`;
+                const url = `https://manga-online-delta.vercel.app/api/getStory?${queryParams.toString()}`;
                 const response = await fetch(url, {
                     method: 'GET',
                 });

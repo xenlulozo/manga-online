@@ -35,14 +35,14 @@ export default function Star({ name }: nameManga) {
     useEffect(() => {
 
         const getUserNameLogin = async () => {
-            // const url = `https://manga-online-six.vercel.app/api/auth/checktoken`;
+            // const url = `https://manga-online-delta.vercel.app/api/auth/checktoken`;
             // const response = await fetch(url, {
             //     method: 'GET',
             // });
 
 
             // console.log(response)
-            const res = await axios.get("https://manga-online-six.vercel.app/api/auth/checktoken")
+            const res = await axios.get("https://manga-online-delta.vercel.app/api/auth/checktoken")
             const result = res.data
             // console.log(res.data.username_token)
             if (result.token) {
@@ -58,7 +58,7 @@ export default function Star({ name }: nameManga) {
             try {
                 const requestData = { name: name };
                 const queryParams = new URLSearchParams(requestData);
-                const url = `https://manga-online-six.vercel.app/api/vote?${queryParams.toString()}`;
+                const url = `https://manga-online-delta.vercel.app/api/vote?${queryParams.toString()}`;
                 const response = await fetch(url, {
                     method: 'GET',
                 });
@@ -92,7 +92,7 @@ export default function Star({ name }: nameManga) {
 
                 const data = { name: name, userAffterLogin: userAffterLogin, rate: rate }
 
-                const response = await axios.post("https://manga-online-six.vercel.app/api/vote", data)
+                const response = await axios.post("https://manga-online-delta.vercel.app/api/vote", data)
 
                 const result = response.data;
 
