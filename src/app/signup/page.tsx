@@ -18,7 +18,7 @@ export default function Signup() {
         e.preventDefault()
 
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/signup", data)
+            const response = await axios.post("https://manga-online-six.vercel.app/api/auth/signup", data)
 
             const result = response.data;
             // console.log(result)
