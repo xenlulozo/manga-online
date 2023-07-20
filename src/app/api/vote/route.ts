@@ -22,7 +22,7 @@ export async function POST(request :Request) {
       const res = await request.json() 
     
       const { name, rate , userAffterLogin } = res;
-      console.log(name,rate,userAffterLogin)
+      // console.log(name,rate,userAffterLogin)
 
       if (!name || !rate || !userAffterLogin) {
         return NextResponse.json({ message: "Invalid values",errCode :0 });
@@ -36,7 +36,7 @@ export async function POST(request :Request) {
       await connection.query(
         'INSERT INTO `rate` (`name`, `username`, `rate`) VALUES (?, ?, ?)',[name,userAffterLogin, rate]
       );
-      console.log(name, rate, userAffterLogin)
+      // console.log(name, rate, userAffterLogin)
       return   NextResponse.json({message:"Thanks for voting", errCode : 1});
 
     } catch (err) {

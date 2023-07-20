@@ -11,7 +11,7 @@ import { CounterContextProvider } from '../../context/context';
 import Link from 'next/link';
 
 
-const LOGIN_URL = "https://manga-online-delta.vercel.app/api/auth/login";
+const LOGIN_URL = "/api/auth/login";
 
 export default function Login() {
     // const { username } = useMyContext();
@@ -34,12 +34,12 @@ export default function Login() {
         e.preventDefault()
 
         try {
-            const response = await axios.post("https://manga-online-delta.vercel.app/api/auth/login", data)
+            const response = await axios.post("/api/auth/login", data)
 
             const result = response.data;
 
-            console.log(result.message);
-            console.log(result.statusCode);
+            // console.log(result.message);
+            // console.log(result.statusCode);
 
             if (result.statusCode === 1) {
                 push("/")
@@ -48,7 +48,7 @@ export default function Login() {
 
 
             // const data = { userName: "hieu", password: "1" }
-            // const url = "https://manga-online-delta.vercel.app/api/login";
+            // const url = "/api/login";
             // const response = await fetch(url, {
             //     method: 'POST',
             //     headers: {

@@ -8,7 +8,7 @@ export default function Logout() {
     const { push } = useRouter()
     useEffect(() => {
         const logOut = async () => {
-            await axios.post("https://manga-online-delta.vercel.app/api/auth/logout")
+            await axios.post("/api/auth/logout")
         }
         push("/")
         logOut()

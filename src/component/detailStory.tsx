@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.css';
-import "./footer.scss"
+import "./detailStory.scss"
 import React, { useEffect, useState } from 'react';
 interface Manga {
     name: string,
@@ -19,18 +19,18 @@ export default function DetailStory({ name }: nameManga) {
     const [author, setAuthor] = useState([])
 
     useEffect(() => {
-        console.log(name)
+        // console.log(name)
         const fetchDetailStory = async () => {
 
             try {
                 const requestData = { name: name };
                 const queryParams = new URLSearchParams(requestData);
-                const url = `https://manga-online-delta.vercel.app/api/getStory?${queryParams.toString()}`;
+                const url = `/api/getStory?${queryParams.toString()}`;
                 const response = await fetch(url, {
                     method: 'GET',
                 });
                 const result = await response.json();
-                console.log("data", response)
+                // console.log("data", response)
                 setData(result[0])
 
                 const genreArray = result[0].genre.split(' - ');

@@ -9,7 +9,7 @@ export default function Login() {
 
         //     try {
         //         const data = { username: "hieu", password: "1" }
-        //         const url = "https://manga-online-delta.vercel.app/api/login";
+        //         const url = "/api/login";
         //         const response = await fetch(url, {
         //             method: 'POST',
         //             headers: {

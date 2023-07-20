@@ -7,11 +7,11 @@ export async function GET(request : Request) {
     const { searchParams } = new URL(request.url)
     const name = searchParams.get('name')
     const chap = searchParams.get('chap')
-    console.log(name, chap)
+    // console.log(name, chap)
     try {
         const imgDir = path.join(process.cwd(), 'public', String(name), String(chap));
         const imageNames = fs.readdirSync(imgDir);
-    
+    console.log(imageNames)
         return   NextResponse.json(imageNames);
       } catch (error) {
         console.log(error);

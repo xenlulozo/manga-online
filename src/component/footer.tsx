@@ -24,8 +24,11 @@ export default function Footer() {
 
                 </div>
             </div>
-            <p className='text-center'>My website is made for educational use with no intention of profiteering or nefarious</p>
-            <p className='text-center'> Disclaimer regarding legal or copyright issues</p>
+            <div className='mx-2'>
+                <p className='text-center '>My website is made for educational use with no intention of profiteering or nefarious</p>
+                <p className='text-center'> Disclaimer regarding legal or copyright issues</p>
+            </div>
+
 
         </>
     )
