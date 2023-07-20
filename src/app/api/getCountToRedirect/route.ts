@@ -1,8 +1,7 @@
-import { stringify } from "querystring";
 import fs from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server'
-import { data } from 'autoprefixer';
+
 export async function GET(request : Request) {
     
     const { searchParams } = new URL(request.url)
@@ -11,11 +10,12 @@ export async function GET(request : Request) {
     try {
         const imgDir = path.join(process.cwd(), 'public', String(name));
         const imageNames = fs.readdirSync(imgDir);
+        console.log(imageNames)
         const data:string[] = [];
-     imageNames.map((item)=>{
-      if(item != "avatar.jpg")
-      data.push(item)
-    })
+        imageNames.map((item)=>{
+          if(item != "avatar.jpg")
+          data.push(item)
+        })
         return   NextResponse.json(data);
       } catch (error) {
         console.log(error);
