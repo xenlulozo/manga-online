@@ -18,7 +18,7 @@
 //     const fetchImageNames = async () => {
 
 //       try {
-//         const response = await fetch(`https://manga-online-delta.vercel.app/api/getImage?name=${slug.slug[0]}&chap=${slug.slug[1]}`);
+//         const response = await fetch(`/api/getImage?name=${slug.slug[0]}&chap=${slug.slug[1]}`);
 
 //         const data = await response.json();
 //         console.log(data)

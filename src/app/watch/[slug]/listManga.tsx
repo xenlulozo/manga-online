@@ -37,14 +37,18 @@ export default function ListManga({ data }: props) {
                                     <div className='name-manga mx-2'>
                                         <h1 className='name' onClick={() => toContent(item.name)}>{item.name.replaceAll("_", " ")}</h1>
 
-                                        <div>
+                                        <div className='col'>
                                             {Array.from({ length: 2 }).map((_, i) => {
                                                 const chapterNumber = item.quantity - i;
                                                 if (chapterNumber > 0) {
                                                     return <>
-                                                        <div className='new-chappter my-2 px-2'>
+                                                        <div className='new-chappter my-2 px-2 '>
+                                                            {/* <div> */}
                                                             <span key={i}>Chapter {chapterNumber}</span>
+
+                                                            {/* </div> */}
                                                         </div>
+                                                        <br />
                                                     </>
                                                 }
                                                 return null;

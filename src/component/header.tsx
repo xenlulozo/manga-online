@@ -22,7 +22,7 @@ export default function Header() {
     const { state, dispatch } = useContext(CounterContext);
     useEffect(() => {
         const checkCookie = async () => {
-            const res = await axios.get("https://manga-online-delta.vercel.app/api/auth/checktoken")
+            const res = await axios.get("/api/auth/checktoken")
             const result = res.data
             // console.log(res.data.token)
             if (result.token) {

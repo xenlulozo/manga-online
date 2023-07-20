@@ -31,10 +31,13 @@ h1 {
     .new-chappter {
         background-color: #ebebeb;
         border-radius: 3px;
-        width: 80px;
+        display: inline-block;
+        // width: 50%;
+
         span {
             font-size: 0.8rem;
             font-weight: 500;
+            display: inline-block;
         }
     }
 }
