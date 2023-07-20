@@ -38,8 +38,8 @@ export default function Login() {
 
             const result = response.data;
 
-            console.log(result.message);
-            console.log(result.statusCode);
+            // console.log(result.message);
+            // console.log(result.statusCode);
 
             if (result.statusCode === 1) {
                 push("/")

@@ -22,7 +22,7 @@ export async function POST(request :Request) {
         const res = await request.json() 
 
         const { userName, password, rePassword } = res;
-        console.log(userName,password,rePassword)
+        // console.log(userName,password,rePassword)
 
         if (!userName || !password ||!rePassword) {
           return NextResponse.json({ message: "Invalid userName or password.",errCode :0 });

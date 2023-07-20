@@ -7,11 +7,11 @@ const dbConfig = {
   port:3306,
   database: 'b71odmgjtjhzrhhfenkd',
 };
-// const dbLocal = {
-//   host: "localhost",
-//   user :"root",
-//   database:"manga"
-// }
+const dbLocal = {
+  host: "localhost",
+  user :"root",
+  database:"manga"
+}
 const connectULR = "mysql://uiy9cq39l2phsb2h:Izj9v0YnEYkikHlE4xkb@b71odmgjtjhzrhhfenkd-mysql.services.clever-cloud.com:3306/b71odmgjtjhzrhhfenkd"
 let connection: Connection;
 

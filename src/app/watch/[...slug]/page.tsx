@@ -25,7 +25,7 @@ export default function Base({ params }: { params: { slug: string } }) {
         const response = await fetch(`/api/getImage?name=${params.slug[0]}&chap=${params.slug[1]}`);
 
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
 
         setImageNames(data);
       } catch (error) {

@@ -19,7 +19,7 @@ export default function DetailStory({ name }: nameManga) {
     const [author, setAuthor] = useState([])
 
     useEffect(() => {
-        console.log(name)
+        // console.log(name)
         const fetchDetailStory = async () => {
 
             try {
@@ -30,7 +30,7 @@ export default function DetailStory({ name }: nameManga) {
                     method: 'GET',
                 });
                 const result = await response.json();
-                console.log("data", response)
+                // console.log("data", response)
                 setData(result[0])
 
                 const genreArray = result[0].genre.split(' - ');
