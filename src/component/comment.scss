@@ -1,0 +1,25 @@
+.form-group {
+    position: relative;
+    .send {
+        position: absolute;
+        right: 1%;
+        top: 15%;
+    }
+}
+.content-comment {
+    position: relative;
+    .comment-header {
+        font-weight: 700;
+        color: #03f;
+        font-size: 1.2rem;
+    }
+
+    .left-arrow {
+        position: absolute;
+        left: -1%;
+        opacity: 0.5;
+    }
+}
+h2 {
+    font-size: 1.2rem;
+}

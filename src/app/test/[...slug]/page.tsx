@@ -12,6 +12,7 @@ import "./menu.scss";
 import Layout from '@/component/layout';
 import Link from 'next/link';
 import { watch } from 'fs';
+import Comment from '@/component/comment';
 interface ComponentAProps {
   index: number
 }
@@ -58,6 +59,7 @@ export default function Base({ params }: { params: { slug: string } }) {
 
       <div className='body'>
         <div className='container'>
+
           {params.slug.length === 2 ? <>
             <div className='header-container'>
               <h1><Link href={`/watch/${params.slug[0]}`}>{params.slug[0].replaceAll("_", " ")} </Link> - Chapter {Number(replaceString(params.slug[1]))}</h1>
@@ -74,6 +76,7 @@ export default function Base({ params }: { params: { slug: string } }) {
               <Content slug={imageNames} name={params.slug[0]} chap={params.slug[1]} />
             </div>
           </> : <></>}
+          <Comment name={params.slug[0]} chap={params.slug[1]} />
 
         </div>
       </div>

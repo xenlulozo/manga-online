@@ -35,13 +35,6 @@ export default function Star({ name }: nameManga) {
     useEffect(() => {
 
         const getUserNameLogin = async () => {
-            // const url = `/api/auth/checktoken`;
-            // const response = await fetch(url, {
-            //     method: 'GET',
-            // });
-
-
-            // console.log(response)
             const res = await axios.get("/api/auth/checktoken")
             const result = res.data
             // console.log(res.data.username_token)

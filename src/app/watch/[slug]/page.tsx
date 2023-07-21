@@ -9,6 +9,7 @@ import Layout from '@/component/layout';
 import React, { useEffect, useState } from "react"
 import DetailStory from '@/component/detailStory';
 import Star from '@/component/star';
+import Comment from '@/component/comment';
 
 export default function Home({ params }: { params: { slug: string } }) {
 
@@ -97,7 +98,9 @@ export default function Home({ params }: { params: { slug: string } }) {
 
                     </div>
 
+
                 </div>
+
             </Layout>
 
         </>

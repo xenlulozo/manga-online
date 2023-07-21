@@ -11,7 +11,7 @@ export async function GET(request : Request) {
     try {
         const imgDir = path.join(process.cwd(), 'public', String(name), String(chap));
         const imageNames = fs.readdirSync(imgDir);
-    console.log(imageNames)
+    // console.log(imageNames)
         return   NextResponse.json(imageNames);
       } catch (error) {
         console.log(error);
