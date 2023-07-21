@@ -17,8 +17,8 @@ let connection: Connection;
 
 const connectDB = async () => {
   try {
-    // connection = await createConnection(connectULR);
-    connection = await createConnection(dbLocal);
+    connection = await createConnection(connectULR);
+    // connection = await createConnection(dbLocal);
 
     console.log('Connected to MySQL');
   } catch (err) {
