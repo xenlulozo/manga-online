@@ -32,16 +32,15 @@ export async function POST(request : Request) {
       const { username, comment,name, chapter } = res;
   console.log(username, comment, name, chapter)
       if (!username || !comment || !chapter || !name) {
-        return NextResponse.json({ message: "some err.",errCode :0 });
+        return NextResponse.json({ message: "invalid parameter",errCode :0 });
       }
         connectDB()
    
         await connection.query('INSERT INTO  comment (id, username, name_manga, comment, chapter) VALUES (NULL, ?, ?, ?, ?)',  [username,name,comment,chapter]);
      
         return   NextResponse.json({message:"comment success" ,errCode :1});
-     
       } catch (err) {
-        return   NextResponse.json({message:"err" ,errCode :0});
+        return   NextResponse.json({message:"some errol" ,errCode :0});
       }
    
 }

@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { CounterContextProvider } from '../../context/context';
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const LOGIN_URL = "/api/auth/login";
@@ -36,12 +38,15 @@ export default function Login() {
         try {
             const response = await axios.post("/api/auth/login", data)
 
+
+
+
             const result = response.data;
 
-            // console.log(result.message);
-            // console.log(result.statusCode);
+
 
             if (result.statusCode === 1) {
+                toast.success("Login success!")
                 push("/")
             }
             setMsg(result.message)
@@ -62,6 +67,7 @@ export default function Login() {
             // console.log(response);
 
         } catch (error) {
+
             console.error(error);
         }
         finally {
@@ -95,6 +101,20 @@ export default function Login() {
             {/* <MyContextProvider username={userName}> */}
             <div className="login-background">
                 <div className="login-container mx-3">
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
+
+                    <ToastContainer />
                     <form onSubmit={(event) => LoginHandler(event)}>
                         {/* <form> */}
                         <div className="login-content ">

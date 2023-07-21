@@ -11,6 +11,8 @@ import { CounterContext } from '@/context/context';
 import { data } from 'autoprefixer';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface nameManga {
     name: string
@@ -30,6 +32,7 @@ export default function Comment({ name, chap }: nameManga) {
 
     const [data, setData] = useState<commentData[]>([])
     const [comment, setComment] = useState("")
+    const notify = () => toast("Wow so easy!");
 
     useEffect(() => {
         const checkCookie = async () => {
@@ -80,32 +83,35 @@ export default function Comment({ name, chap }: nameManga) {
 
     }, [])
     const handelComment = async (e: any) => {
-        const data = { chapter: chap, name: name, comment: comment, username: userAffterLogin }
         e.preventDefault()
-        if (userAffterLogin) {
 
-            if (isLogin) {
 
-                try {
+        const dataPag = { chapter: chap, name: name, comment: comment, username: userAffterLogin }
+        if (isLogin) {
 
-                    const response = await axios.post("/api/comment", data)
+            try {
 
-                    const result = response.data;
-                    if (response.data.errCode === 1) {
-                        setComment("")
-                    }
-                    else {
-                        alert("some errol")
-                    }
+                const response = await axios.post("/api/comment", dataPag)
 
-                } catch (error) {
-                    console.log(error)
+                const result = response.data;
+                if (response.data.errCode === 1) {
+                    setComment("")
+                    toast.success('Comment Success! ')
                 }
-            }
-            else {
-                push("/login")
+                else {
+                    toast.error(response.data.message)
+                }
+
+            } catch (error) {
+                console.log(error)
             }
         }
+        else {
+            push("/login")
+        }
+
+
+
 
 
     }
@@ -115,13 +121,27 @@ export default function Comment({ name, chap }: nameManga) {
     return (
         <>
             <div className='mt-3'>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
+
+                <ToastContainer />
                 <h2>Comment</h2>
                 <div>
                     <form onSubmit={(event) => handelComment(event)}>
                         <div className="form-group">
 
 
-                            <textarea onChange={(event) => handelChangedComment(event)} value={comment} name="comment" className="form-control" aria-label="With textarea"></textarea>
+                            <textarea required onChange={(event) => handelChangedComment(event)} value={comment} name="comment" className="form-control" aria-label="With textarea"></textarea>
                             <button className='send'><FontAwesomeIcon icon={faPaperPlane} /></button>
 
                         </div>
