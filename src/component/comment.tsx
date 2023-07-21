@@ -80,9 +80,10 @@ export default function Comment({ name, chap }: nameManga) {
 
     }, [])
     const handelComment = async (e: any) => {
+        const data = { chapter: chap, name: name, comment: comment, username: userAffterLogin }
+        e.preventDefault()
         if (userAffterLogin) {
-            const data = { chapter: chap, name: name, comment: comment, username: userAffterLogin }
-            e.preventDefault()
+
             if (isLogin) {
 
                 try {
